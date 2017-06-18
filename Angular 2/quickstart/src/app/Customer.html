@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<h2>Customer</h2>
+<ul class="customer">
+    <li *ngFor="let cst of customer" [class.selected]="cst === selectedcustomer" (click)="onSelect(cst)">
+        <span class="badge">{{cst.id}}</span> {{cst.name}}
+    </li>
+</ul>
+<div *ngIf="selectedcustomer">
+    <customer-details [customer]="selectedcustomer"></customer-details>
+</div>
