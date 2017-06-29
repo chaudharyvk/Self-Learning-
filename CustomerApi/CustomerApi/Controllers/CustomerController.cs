@@ -13,9 +13,14 @@ namespace CustomerApi.Controllers
     {
         // GET: api/Customer
         [JsonOutput]
-        public IEnumerable<string> Get()
+        public IEnumerable<Models.Customer> Get()
         {
-            return new string[] { "Customer1", "Customer2" };
+            var response = new List<Models.Customer>() ;
+
+           var customer = new  Models.Customer(1,"virender",37,"Wien",1020,"Wien","Austria");
+            response.Add(customer);
+            
+            return new response;
         }
 
         // GET: api/Customer/5
