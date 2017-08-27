@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Http.Filters;
-
+    
 namespace CustomerApi.Controllers
 {
     public class CustomerController : ApiController
@@ -17,10 +17,14 @@ namespace CustomerApi.Controllers
         {
             var response = new List<Models.Customer>() ;
 
-           var customer = new  Models.Customer(1,"virender",37,"Wien",1020,"Wien","Austria");
+           var customer = new  Models.Customer(1,"Rishi Kumar Chaudhary",37,"Wien",1020,"Wien","Austria");
+            var customer1 = new Models.Customer(2, "Virendra Kumar Chaudhary", 37, "Wien", 1020, "Wien", "Austria");
+            var customer2 = new Models.Customer(3, "Kavita Kumar Chaudhary", 37, "Wien", 1020, "Wien", "Austria");
             response.Add(customer);
-            
-            return new response;
+            response.Add(customer1);
+            response.Add(customer2);
+
+            return  response;
         }
 
         // GET: api/Customer/5
