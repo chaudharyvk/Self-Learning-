@@ -11,8 +11,9 @@ namespace DomainDrivenDesign.Core.Interfaces
     {
         void Add(Customer customer);
         void Remove(Customer customer);
-
+        Task<List<Customer>> Get();
         void Update(Customer customer);
+        Task<int> CusotmerSaveChangesAsync();
 
     }
 }

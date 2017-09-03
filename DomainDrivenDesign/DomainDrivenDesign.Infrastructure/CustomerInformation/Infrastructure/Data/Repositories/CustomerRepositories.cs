@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DomainDrivenDesign.Core.Model;
+using System.Data.Entity;
 
 namespace DomainDrivenDesign.Infrastructure.CustomerInformation.Infrastructure.Data.Repositories
 {
@@ -20,10 +21,14 @@ namespace DomainDrivenDesign.Infrastructure.CustomerInformation.Infrastructure.D
         {
             this.context.Customers.Add(customer);
             this.context.Entry(customer).State = System.Data.Entity.EntityState.Added;
-            this.context.SaveChanges();
+            //this.context.SaveChangesAsync();
 
         }
 
+        public Task<int> CusotmerSaveChangesAsync()
+        {
+           return this.context.SaveChangesAsync();
+        }
         private bool disposed;
 
         public void Dispose()
@@ -54,6 +59,11 @@ namespace DomainDrivenDesign.Infrastructure.CustomerInformation.Infrastructure.D
         public void Update(Customer customer)
         {
             throw new NotImplementedException();
+        }
+
+        public Task<List<Customer>> Get()
+        {
+            return context.Customers.ToListAsync();
         }
     }
 }

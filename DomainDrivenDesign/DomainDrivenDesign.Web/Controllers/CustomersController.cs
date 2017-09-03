@@ -9,17 +9,26 @@ using System.Web;
 using System.Web.Mvc;
 using DomainDrivenDesign.Core.Model;
 using DomainDrivenDesign.Infrastructure.CustomerInformation;
+using DomainDrivenDesign.Core.Interfaces;
+using DomainDrivenDesign.Infrastructure.CustomerInformation.Infrastructure.Data.Repositories;
+using Microsoft.Practices.Unity;
 
 namespace DomainDrivenDesign.Web.Controllers
 {
     public class CustomersController : Controller
     {
-        private CustomerContext db = new CustomerContext();
-
+        private CustomerContext db = new CustomerContext(); // cutomer context will get deleted once the cusomter repository in full flash.
+        private ICustomerRepository customerReposity;
+        IUnityContainer container;
+        public CustomersController(IUnityContainer contianer)
+        {
+            this.container = contianer;
+            customerReposity = container.Resolve<ICustomerRepository>();
+        }
         //GET: Customers
         public async Task<ActionResult> Index()
         {
-            return View(await db.Customers.ToListAsync());
+            return View(await  customerReposity.Get());
         }
         //public ActionResult Index()
         //{
@@ -56,8 +65,9 @@ namespace DomainDrivenDesign.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customer);
-                await db.SaveChangesAsync();
+                // db.Customers.Add(customer);
+                customerReposity.Add(customer);
+                await customerReposity.CusotmerSaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
