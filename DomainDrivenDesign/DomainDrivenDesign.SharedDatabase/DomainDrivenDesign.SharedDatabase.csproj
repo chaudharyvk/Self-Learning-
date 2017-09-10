@@ -52,9 +52,9 @@
     <Compile Include="CustomerContext.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Customer.cs" />
-    <Compile Include="Migrations\201709100758125_CustomerInformation.cs" />
-    <Compile Include="Migrations\201709100758125_CustomerInformation.Designer.cs">
-      <DependentUpon>201709100758125_CustomerInformation.cs</DependentUpon>
+    <Compile Include="Migrations\201709101127445_CustomerInformation.cs" />
+    <Compile Include="Migrations\201709101127445_CustomerInformation.Designer.cs">
+      <DependentUpon>201709101127445_CustomerInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,15 +64,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709100758125_CustomerInformation.resx">
-      <DependentUpon>201709100758125_CustomerInformation.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DomainDrivenDesign.ShareKernal\DomainDrivenDesign.ShareKernal.csproj">
       <Project>{C7D573C4-144D-47AA-9735-F485D45B9FC4}</Project>
       <Name>DomainDrivenDesign.ShareKernal</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709101127445_CustomerInformation.resx">
+      <DependentUpon>201709101127445_CustomerInformation.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

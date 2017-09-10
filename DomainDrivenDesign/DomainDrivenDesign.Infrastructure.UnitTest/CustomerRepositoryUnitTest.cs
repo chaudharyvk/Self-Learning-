@@ -4,6 +4,7 @@ using DomainDrivenDesign.Core.Interfaces;
 using DomainDrivenDesign.Infrastructure.CustomerInformation.Infrastructure.Data.Repositories;
 using Moq;
 using DomainDrivenDesign.ShareKernal;
+using System.Threading;
 
 namespace DomainDrivenDesign.Infrastructure.UnitTests
 {
@@ -23,7 +24,7 @@ namespace DomainDrivenDesign.Infrastructure.UnitTests
         {
             ICustomerRepository customer = new CustomerRepositories(new CustomerInformation.CustomerContext());
             var result = customer.Add(new Core.Model.Customer() { FirstName = "Virendr", Addresses = new Core.Model.Address() { Address1 = "LeonardBernstiedStrasse", PIN = 10 } });
-           Assert.IsNotNull(result);
+            Assert.IsNotNull(result);
 
         }
 
@@ -32,7 +33,7 @@ namespace DomainDrivenDesign.Infrastructure.UnitTests
         {
             ICustomerRepository customer = new CustomerRepositories(new CustomerInformation.CustomerContext());
             customer.Update(new Core.Model.Customer() { FirstName = "Test Enum", TrackingState=TrackingState.Added, Addresses = new Core.Model.Address() { Address1 = "LeonardBernstiedStrasse", PIN = 10 } });
-            
+           // Thread.Sleep(200);
             //Assert.IsNotNull(result);
 
         }
