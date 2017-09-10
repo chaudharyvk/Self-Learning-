@@ -26,10 +26,6 @@ namespace DomainDrivenDesign.Infrastructure.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            context.Customers.AddOrUpdate(p => p.FirstName, new Core.Model.Customer { FirstName = "Martin luther king" });
-            context.Customers.AddOrUpdate(p => p.FirstName, new Core.Model.Customer { FirstName = "Robert" });
-            context.Customers.AddOrUpdate(p => p.FirstName, new Core.Model.Customer { FirstName = "Micheal Jackson" });
-            context.Customers.AddOrUpdate(p => p.FirstName, new Core.Model.Customer { FirstName = "Donand Duck" });
         }
     }
 }

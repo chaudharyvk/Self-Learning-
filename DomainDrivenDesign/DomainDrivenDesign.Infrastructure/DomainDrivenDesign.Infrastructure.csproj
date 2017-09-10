@@ -51,13 +51,9 @@
   <ItemGroup>
     <Compile Include="CustomerInformation\CustomerContext.cs" />
     <Compile Include="CustomerInformation\Infrastructure\Data\Repositories\CustomerRepositories.cs" />
-    <Compile Include="Migrations\201709011621250_CustomerInformation.cs" />
-    <Compile Include="Migrations\201709011621250_CustomerInformation.Designer.cs">
-      <DependentUpon>201709011621250_CustomerInformation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709021727010_RowVersion.cs" />
-    <Compile Include="Migrations\201709021727010_RowVersion.Designer.cs">
-      <DependentUpon>201709021727010_RowVersion.cs</DependentUpon>
+    <Compile Include="Migrations\201709091845300_CustomerInformation.cs" />
+    <Compile Include="Migrations\201709091845300_CustomerInformation.Designer.cs">
+      <DependentUpon>201709091845300_CustomerInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,18 +63,26 @@
       <Project>{698596ce-f329-4505-a3d6-5a8fe3e4cb42}</Project>
       <Name>DomainDrivenDesign.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DomainDrivenDesign.SharedDatabase\DomainDrivenDesign.SharedDatabase.csproj">
+      <Project>{50157C7D-7B8A-45FE-89B5-D9CFB78324B9}</Project>
+      <Name>DomainDrivenDesign.SharedDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainDrivenDesign.ShareKernal\DomainDrivenDesign.ShareKernal.csproj">
+      <Project>{C7D573C4-144D-47AA-9735-F485D45B9FC4}</Project>
+      <Name>DomainDrivenDesign.ShareKernal</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709011621250_CustomerInformation.resx">
-      <DependentUpon>201709011621250_CustomerInformation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709091845300_CustomerInformation.resx">
+      <DependentUpon>201709091845300_CustomerInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709021727010_RowVersion.resx">
-      <DependentUpon>201709021727010_RowVersion.cs</DependentUpon>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DomainDrivenDesign\Infrastructure\CustomerInformation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

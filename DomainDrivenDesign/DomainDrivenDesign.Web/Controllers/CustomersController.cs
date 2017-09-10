@@ -12,6 +12,7 @@ using DomainDrivenDesign.Infrastructure.CustomerInformation;
 using DomainDrivenDesign.Core.Interfaces;
 using DomainDrivenDesign.Infrastructure.CustomerInformation.Infrastructure.Data.Repositories;
 using Microsoft.Practices.Unity;
+using DomainDrivenDesign.Web.Models;
 
 namespace DomainDrivenDesign.Web.Controllers
 {
@@ -53,7 +54,9 @@ namespace DomainDrivenDesign.Web.Controllers
         // GET: Customers/Create
         public ActionResult Create()
         {
-            return View();
+            CreateAddressViewModel customer = new CreateAddressViewModel();
+           
+            return View(customer);
         }
 
         // POST: Customers/Create
@@ -61,12 +64,12 @@ namespace DomainDrivenDesign.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,FirstName")] Customer customer)
+        public async Task<ActionResult> Create([Bind(Include = "ID,FirstName,Address1")] CreateAddressViewModel customer)
         {
             if (ModelState.IsValid)
             {
                 // db.Customers.Add(customer);
-                customerReposity.Add(customer);
+                customerReposity.Add(new Customer() { FirstName = customer.FirstName, Addresses = new Address() { Address1 = customer.Address1 } });
                 await customerReposity.CusotmerSaveChangesAsync();
                 return RedirectToAction("Index");
             }

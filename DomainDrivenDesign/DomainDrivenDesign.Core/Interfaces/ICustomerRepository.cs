@@ -9,7 +9,7 @@ namespace DomainDrivenDesign.Core.Interfaces
 {
    public interface ICustomerRepository 
     {
-        void Add(Customer customer);
+        int Add(Customer customer);
         void Remove(Customer customer);
         Task<List<Customer>> Get();
         void Update(Customer customer);

@@ -13,7 +13,7 @@ namespace DomainDrivenDesign.Infrastructure.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201709011621250_CustomerInformation"; }
+            get { return "201709091845300_CustomerInformation"; }
         }
         
         string IMigrationMetadata.Source
