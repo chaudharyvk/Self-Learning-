@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using CoolBlue.PointofSale.Core.Model;
 using CoolBlue.PointofSale.Infrastructure;
-using Microsoft.Practices.Unity;
 using CoolBlue.PointofSale.Core.Interfaces;
-using CoolBlue.PointofSale.App_Start;
 
 namespace CoolBlue.PointofSale.Controllers
 {
@@ -20,11 +14,6 @@ namespace CoolBlue.PointofSale.Controllers
     {
         private PointofSaleContext db = new PointofSaleContext();
         private IProductRepository ProductRespostory;
-
-        public ProductsController()
-        {
-
-        }
 
         public ProductsController(IProductRepository productrepository)
         {
@@ -34,14 +23,10 @@ namespace CoolBlue.PointofSale.Controllers
         }
 
         // GET: api/Products
-        // PBI 1 
-
-           
+        // PBI 1                   
         public IQueryable<Product> GetProducts()
-        {
-            var container =  UnityConfig.GetConfiguredContainer();
-            var p = container.Resolve<IProductRepository>();
-            return p.GetAllProduct();
+        {            
+            return ProductRespostory.GetAllProduct();
         }
 
         // GET: api/Products/5
@@ -57,21 +42,43 @@ namespace CoolBlue.PointofSale.Controllers
             return Ok(product);
         }
 
+        // GET: api/Products/5
+        [ResponseType(typeof(Product))]
+        public IHttpActionResult GetProduct(string name)
+        {
+            var product = this.ProductRespostory.GetProductByName(name);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(product);
+        }
+
+
+
+       
+
         // PUT: api/Products/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProduct(int id, Product product)
+        public IHttpActionResult PutProduct(Product product)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != product.Id)
+            var prod = db.Products.FirstOrDefault(x=>x.Id==product.Id);
+
+            if (product.Id != prod.Id)
             {
                 return BadRequest();
             }
+            prod.Name = product.Name;
+            prod.Price = product.Price;
+            prod.Quantity = product.Quantity;
 
-            db.Entry(product).State = EntityState.Modified;
+            db.Entry(prod).State = EntityState.Modified;
 
             try
             {
@@ -79,7 +86,7 @@ namespace CoolBlue.PointofSale.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductExists(id))
+                if (!ProductExists(product.Id))
                 {
                     return NotFound();
                 }
@@ -101,9 +108,11 @@ namespace CoolBlue.PointofSale.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Products.Add(product);
-            db.SaveChanges();
+            // db.Products.Add(product);
+            // db.SaveChanges();
 
+            var id = this.ProductRespostory.AddProduct(product);
+            product = this.ProductRespostory.GetProductById(id);           
             return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);
         }
 

@@ -3,7 +3,7 @@ namespace CoolBlue.PointofSale.Database.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CoolBluePointofSale : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {

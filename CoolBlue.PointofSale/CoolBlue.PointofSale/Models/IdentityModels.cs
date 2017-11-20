@@ -29,5 +29,7 @@ namespace CoolBlue.PointofSale.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<CoolBlue.PointofSale.Core.Model.Product> Products { get; set; }
     }
 }

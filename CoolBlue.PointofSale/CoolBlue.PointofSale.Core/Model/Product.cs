@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace CoolBlue.PointofSale.Core.Model
 {
-   public class Product : Entity<int>
+   public class Product 
     {
-         
+
+        public  int Id        { get; set; }
+
         [Required]
         public string Name { get; set; }
 
@@ -20,6 +22,8 @@ namespace CoolBlue.PointofSale.Core.Model
 
         [Timestamp]
         public byte[] RowVersion { get; set; }
+
+        
 
         
 

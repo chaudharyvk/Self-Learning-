@@ -29,7 +29,7 @@ namespace CoolBlue.PointofSale.Infrastructure.Product.Data
       
         public IQueryable<Core.Model.Product> GetAllProduct()
         {
-            return _produtContext.Products;
+            return _produtContext.Products.OrderByDescending(x=>x.Id);
         }
 
         public Core.Model.Product GetProductById(int id)
@@ -40,6 +40,16 @@ namespace CoolBlue.PointofSale.Infrastructure.Product.Data
             }
            return  _produtContext.Products.FirstOrDefault(x =>x.Id == id);
           
+        }
+
+        public  IQueryable<Core.Model.Product> GetProductByName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentNullException("Product Not Found");
+            }
+            return _produtContext.Products.Where(x => x.Name.Contains(name));
+
         }
 
 

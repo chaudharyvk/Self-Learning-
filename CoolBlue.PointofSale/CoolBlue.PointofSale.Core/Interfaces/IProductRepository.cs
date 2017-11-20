@@ -15,5 +15,9 @@ namespace CoolBlue.PointofSale.Core.Interfaces
         Product GetProductById(int productid);
         void Update(Product product);
         Task<int> ProductSaveChangesAsync();
+
+        IQueryable<Product> GetProductByName(string name);
+
+
     }
 }

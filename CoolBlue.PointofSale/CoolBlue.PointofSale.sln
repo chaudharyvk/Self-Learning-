@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolBlue.PointofSale.Core.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolBlue.PointofSale.SharedKernal", "CoolBlue.PointofSale.SharedKernal\CoolBlue.PointofSale.SharedKernal.csproj", "{1DC36672-6351-490D-ACE1-18C356650970}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolBlue.PointofSale.UI", "CoolBlue.PointofSale.UI\CoolBlue.PointofSale.UI.csproj", "{A936F373-710F-4552-989C-3080FD4AD595}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{1DC36672-6351-490D-ACE1-18C356650970}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DC36672-6351-490D-ACE1-18C356650970}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DC36672-6351-490D-ACE1-18C356650970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A936F373-710F-4552-989C-3080FD4AD595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A936F373-710F-4552-989C-3080FD4AD595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A936F373-710F-4552-989C-3080FD4AD595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A936F373-710F-4552-989C-3080FD4AD595}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -25,12 +25,12 @@ namespace CoolBlue.PointofSale.Controllers
 
         }
 
-        IUnityContainer _container;
+       
 
-        public OrdersController(IUnityContainer Container)
+        public OrdersController(IOrderRepository orderRepository)
         {
-            this._container = Container;
-            _orderRepository = this._container.Resolve<IOrderRepository>();
+          //  this._container = Container;
+            _orderRepository = orderRepository;
 
         }
 

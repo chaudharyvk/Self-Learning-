@@ -7,13 +7,13 @@ namespace CoolBlue.PointofSale.Database.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CoolBluePointofSale : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CoolBluePointofSale));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709121240548_CoolBluePointofSale"; }
+            get { return "201711191546227_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

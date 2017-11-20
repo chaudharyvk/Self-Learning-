@@ -58,9 +58,9 @@
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\OrderDetails.cs" />
     <Compile Include="Entities\Product.cs" />
-    <Compile Include="Migrations\201709121240548_CoolBluePointofSale.cs" />
-    <Compile Include="Migrations\201709121240548_CoolBluePointofSale.Designer.cs">
-      <DependentUpon>201709121240548_CoolBluePointofSale.cs</DependentUpon>
+    <Compile Include="Migrations\201711191546227_InitialCreate.cs" />
+    <Compile Include="Migrations\201711191546227_InitialCreate.Designer.cs">
+      <DependentUpon>201711191546227_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,8 +76,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709121240548_CoolBluePointofSale.resx">
-      <DependentUpon>201709121240548_CoolBluePointofSale.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711191546227_InitialCreate.resx">
+      <DependentUpon>201711191546227_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

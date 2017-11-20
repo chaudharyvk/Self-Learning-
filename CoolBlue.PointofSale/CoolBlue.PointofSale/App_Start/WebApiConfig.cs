@@ -5,6 +5,12 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
+using Unity;
+using CoolBlue.PointofSale.Core.Interfaces;
+using CoolBlue.PointofSale.Infrastructure;
+using CoolBlue.PointofSale.Infrastructure.Product.Data;
+using CoolBlue.PointofSale.Infrastructure.Customer.Data.Repositories;
+using CoolBlue.PointofSale.Infrastructure.Order.Data.Repositories;
 
 namespace CoolBlue.PointofSale
 {
@@ -25,6 +31,14 @@ namespace CoolBlue.PointofSale
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            var container = new UnityContainer();
+            container.RegisterType<PointofSaleContext>();
+            container.RegisterType<IProductRepository, ProductRepositories>();
+            container.RegisterType<ICustomerRepository, CustomerRepositories>();
+            container.RegisterType<IOrderRepository, OrderRepositories>();
+            config.DependencyResolver = new Controllers.UnityResolver(container);
+
         }
     }
 }
