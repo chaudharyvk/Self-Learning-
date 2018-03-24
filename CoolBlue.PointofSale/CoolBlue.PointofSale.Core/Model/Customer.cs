@@ -3,12 +3,14 @@ using CoolBlue.PointofSale.SharedKernal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CoolBlue.PointofSale.Core.Model
 {
+    [Table("Customer", Schema = "dbo")]
     public class Customer : Entity<int>
     {
    
@@ -21,7 +23,7 @@ namespace CoolBlue.PointofSale.Core.Model
 
         public virtual Address Addresses { get; set; }
 
-        public virtual Order Orders { get; set; }
+        //public virtual Order Orders { get; set; }
 
 
         public static Customer CreateCustomer(string userid,string password, Address address)
@@ -34,8 +36,8 @@ namespace CoolBlue.PointofSale.Core.Model
 
             customer.Addresses = new Address();
             customer.Addresses = address;
-            CreateCustomerEvent createCustomerEvent = new CreateCustomerEvent(customer);
-            DomainEvents.Raise(createCustomerEvent);
+           // CreateCustomerEvent createCustomerEvent = new CreateCustomerEvent(customer);
+           // DomainEvents.Raise(createCustomerEvent);
             return customer;
         }
     }

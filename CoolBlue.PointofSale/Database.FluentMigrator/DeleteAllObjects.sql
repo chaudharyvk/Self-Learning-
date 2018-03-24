@@ -1,5 +1,4 @@
-﻿
-Declare @name VARCHAR(128)
+﻿Declare @name VARCHAR(128)
 Declare @SQL VarChar(254)
 
 SElect @name = (Select TOP 1 [name] from sysobjects where [type]='P' and category=0 order by [name])

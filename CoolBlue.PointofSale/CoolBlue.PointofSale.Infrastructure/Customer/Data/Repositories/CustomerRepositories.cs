@@ -29,7 +29,16 @@ namespace CoolBlue.PointofSale.Infrastructure.Customer.Data.Repositories
             var cust = Core.Model.Customer.CreateCustomer(customer.UserId, customer.Password, customer.Addresses);
             this._customerContext.Customers.Add(cust);
                 
-            _customerContext.Entry(customer).State = System.Data.Entity.EntityState.Added;
+            _customerContext.Entry(cust).State = System.Data.Entity.EntityState.Added;
+            return this._customerContext.SaveChanges();
+        }
+
+        public int Add(string Userid, string password, Address address)
+        {
+            var cust = Core.Model.Customer.CreateCustomer(Userid, password, address);
+            this._customerContext.Customers.Add(cust);
+
+            _customerContext.Entry(cust).State = System.Data.Entity.EntityState.Added;
             return this._customerContext.SaveChanges();
         }
 

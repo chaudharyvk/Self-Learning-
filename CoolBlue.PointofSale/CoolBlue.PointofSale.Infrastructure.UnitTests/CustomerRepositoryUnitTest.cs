@@ -20,9 +20,9 @@ namespace CoolBlue.PointofSale.Infrastructure.UnitTests
 
             ICustomerRepository product = new CustomerRepositories(new PointofSaleContext());
 
-            Address address1 = new Address() { FirstName = "Virendra", LastName = "Martin", PhoneNumber = "436991736699", City = "Rotterdon", Country = "Netherland", PinCode = 1232 };
+            Address address1 = new Address() { FirstName = "Virendra", LastName = "Martin",  City = "Rotterdon", Country = "Netherland", PostalCode = "1232" };
 
-            var custmer = new CoolBlue.PointofSale.Core.Model.Customer() { UserId="Virender",password="IAEA123", Addresses = address1};
+            var custmer = new CoolBlue.PointofSale.Core.Model.Customer() { UserId="Virender",Password="IAEA123", Addresses = address1};
 
             Assert.IsNotNull(product.Add(custmer));
         }

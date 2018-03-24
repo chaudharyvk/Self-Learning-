@@ -30,7 +30,7 @@ namespace CoolBlue.PointofSale.Infrastructure
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Address>().HasRequired(c => c.Customer).WithRequiredDependent(x => x.Addresses).Map(m => m.MapKey("CustomerID"));
+            modelBuilder.Entity<Address>().HasRequired(c => c.Customer).WithRequiredDependent(x => x.Addresses).Map(m => m.MapKey("CustomerId"));
             //modelBuilder.Entity<Order>().HasOptional(c => c.Customer).WithOptionalDependent(x => x.Orders).Map(m => m.MapKey("CustomerID"));
             base.OnModelCreating(modelBuilder);
         }

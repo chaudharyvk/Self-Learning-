@@ -40,7 +40,7 @@ namespace CoolBlue.PointofSale
             container.RegisterType<IProductRepository, ProductRepositories>();
             container.RegisterType<ICustomerRepository, CustomerRepositories>();
             container.RegisterType<IOrderRepository, OrderRepositories>();
-            container.RegisterType<IHandle<CreateCustomerEvent>, CreateCustomerEventHandler>("CreateCustomerEventHandler", new PerRequestLifetimeManager());
+           // container.RegisterType<IHandle<CreateCustomerEvent>, CreateCustomerEventHandler>("CreateCustomerEventHandler", new PerRequestLifetimeManager());
             config.DependencyResolver = new Controllers.UnityResolver(container);
 
         }

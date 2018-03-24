@@ -20,23 +20,23 @@ namespace Database
         public override void Up()
         {
             Create.Table("Address").WithColumn("Id").AsInt32().PrimaryKey().Identity()
-                                    .WithColumn("FirstName").AsString()
-                                    .WithColumn("LastName").AsString()
-                                    .WithColumn("Address1").AsString()
-                                    .WithColumn("Address2").AsString()
-                                    .WithColumn("Country").AsString()
-                                    .WithColumn("State").AsString()
-                                    .WithColumn("City").AsString()
-                                    .WithColumn("MobileNumber").AsString()
-                                    .WithColumn("PostalCode").AsString().
-                                    WithColumn("CustomerId").AsInt32();
+                                    .WithColumn("FirstName").AsString().Nullable()
+                                    .WithColumn("LastName").AsString().Nullable()
+                                    .WithColumn("Address1").AsString().Nullable()
+                                    .WithColumn("Address2").AsString().Nullable()
+                                    .WithColumn("Country").AsString().Nullable()
+                                    .WithColumn("State").AsString().Nullable()
+                                    .WithColumn("City").AsString().Nullable()
+                                    .WithColumn("MobileNumber").AsString().Nullable()
+                                    .WithColumn("PostalCode").AsString().Nullable().
+                                    WithColumn("CustomerId").AsInt32().Nullable();
 
             Create.Table("Customer").WithColumn("Id").AsInt32().PrimaryKey().Identity()
                                    .WithColumn("UserId").AsString()
                                    .WithColumn("RowVersion").AsCustom("TIMESTAMP").NotNullable()
                                    .WithColumn("Password").AsString();
 
-            Create.ForeignKey("FK_dbo.Address.SubmissionId").FromTable("Address").
+            Create.ForeignKey("FK_dbo.Address.Customer").FromTable("Address").
                 InSchema("dbo").ForeignColumns("CustomerId").
                 ToTable("Customer").InSchema("dbo").PrimaryColumns("Id");
         }
