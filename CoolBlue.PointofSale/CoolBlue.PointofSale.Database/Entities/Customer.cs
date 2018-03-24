@@ -11,7 +11,6 @@ namespace CoolBlue.PointofSale.Database.Entities
     public class Customer : Entity<int>
     {
        
-
         public string UserId { get; set; }
 
         public string password { get; set; }

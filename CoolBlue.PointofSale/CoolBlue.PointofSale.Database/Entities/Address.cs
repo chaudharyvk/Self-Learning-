@@ -9,7 +9,6 @@ namespace CoolBlue.PointofSale.Database.Entities
 {
     public class Address : Entity<int>
     {
-
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
@@ -21,7 +20,11 @@ namespace CoolBlue.PointofSale.Database.Entities
 
         public string City { get; set; }
 
+        public string State { get; set; }
+
         public int PinCode { get; set; }
+
+        public string LandMark { get; set; }
 
         public string EmailAddress { get; set;}
 

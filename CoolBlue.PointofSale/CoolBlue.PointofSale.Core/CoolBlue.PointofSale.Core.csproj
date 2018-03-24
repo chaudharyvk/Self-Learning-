@@ -47,6 +47,8 @@
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Class1.cs" />
     <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Events\CreateCustomerEvent.cs" />
+    <Compile Include="Model\Events\CreateCustomerEventHandler.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\OrderDetails.cs" />
     <Compile Include="Model\Product.cs" />
@@ -58,6 +60,7 @@
       <Name>CoolBlue.PointofSale.SharedKernal</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

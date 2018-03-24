@@ -1,0 +1,3 @@
+﻿Enable-Migrations
+add-migration CoolBluePointofSale
+Update-Database

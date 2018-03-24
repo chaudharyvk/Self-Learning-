@@ -11,6 +11,9 @@ using CoolBlue.PointofSale.Infrastructure;
 using CoolBlue.PointofSale.Infrastructure.Product.Data;
 using CoolBlue.PointofSale.Infrastructure.Customer.Data.Repositories;
 using CoolBlue.PointofSale.Infrastructure.Order.Data.Repositories;
+using CoolBlue.PointofSale.SharedKernal.Interfaces;
+using CoolBlue.PointofSale.Core.Model.Events;
+using Microsoft.Practices.Unity;
 
 namespace CoolBlue.PointofSale
 {
@@ -37,6 +40,7 @@ namespace CoolBlue.PointofSale
             container.RegisterType<IProductRepository, ProductRepositories>();
             container.RegisterType<ICustomerRepository, CustomerRepositories>();
             container.RegisterType<IOrderRepository, OrderRepositories>();
+            container.RegisterType<IHandle<CreateCustomerEvent>, CreateCustomerEventHandler>("CreateCustomerEventHandler", new PerRequestLifetimeManager());
             config.DependencyResolver = new Controllers.UnityResolver(container);
 
         }

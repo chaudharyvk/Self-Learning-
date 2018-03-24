@@ -21,12 +21,14 @@ namespace CoolBlue.PointofSale.Infrastructure.Customer.Data.Repositories
         {
             //todo throw custom exception if user already registerd
 
-           //if( GetCustomerByUserID(customer.UserId)!=null)
-           // {
-           //     throw CustomException();
-           // }
-            this._customerContext.Customers.Add(customer);
+            //if( GetCustomerByUserID(customer.UserId)!=null)
+            // {
+            //     throw CustomException();
+            // }
 
+            var cust = Core.Model.Customer.CreateCustomer(customer.UserId, customer.Password, customer.Addresses);
+            this._customerContext.Customers.Add(cust);
+                
             _customerContext.Entry(customer).State = System.Data.Entity.EntityState.Added;
             return this._customerContext.SaveChanges();
         }

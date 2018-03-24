@@ -62,6 +62,10 @@
     <Compile Include="Migrations\201711191546227_InitialCreate.Designer.cs">
       <DependentUpon>201711191546227_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803180634509_add-migration CoolBluePointofSale.cs" />
+    <Compile Include="Migrations\201803180634509_add-migration CoolBluePointofSale.Designer.cs">
+      <DependentUpon>201803180634509_add-migration CoolBluePointofSale.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -79,6 +83,12 @@
     <EmbeddedResource Include="Migrations\201711191546227_InitialCreate.resx">
       <DependentUpon>201711191546227_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803180634509_add-migration CoolBluePointofSale.resx">
+      <DependentUpon>201803180634509_add-migration CoolBluePointofSale.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MigrationCommand.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -30,5 +30,7 @@ namespace CoolBlue.PointofSale.Core.Model
         public int MobileNumber { get; set; }
 
         public virtual Customer Customer { get; set; }
+
+      
     }
 }

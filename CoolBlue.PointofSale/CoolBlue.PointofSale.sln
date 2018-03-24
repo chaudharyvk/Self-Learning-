@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolBlue.PointofSale", "CoolBlue.PointofSale\CoolBlue.PointofSale.csproj", "{1DC25163-A7D6-4CA1-AFE8-6D98BA4521B3}"
 EndProject
@@ -20,6 +20,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolBlue.PointofSale.SharedKernal", "CoolBlue.PointofSale.SharedKernal\CoolBlue.PointofSale.SharedKernal.csproj", "{1DC36672-6351-490D-ACE1-18C356650970}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolBlue.PointofSale.UI", "CoolBlue.PointofSale.UI\CoolBlue.PointofSale.UI.csproj", "{A936F373-710F-4552-989C-3080FD4AD595}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedKarnel", "SharedKarnel", "{40E664E8-CC7A-4F81-BE6B-5B56C6D4EF1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database.FluentMigrator\Database.csproj", "{8EAD989D-6731-49F1-875F-F1D2EF236A3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,8 +67,18 @@ Global
 		{A936F373-710F-4552-989C-3080FD4AD595}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A936F373-710F-4552-989C-3080FD4AD595}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A936F373-710F-4552-989C-3080FD4AD595}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EAD989D-6731-49F1-875F-F1D2EF236A3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EAD989D-6731-49F1-875F-F1D2EF236A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EAD989D-6731-49F1-875F-F1D2EF236A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EAD989D-6731-49F1-875F-F1D2EF236A3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1DC36672-6351-490D-ACE1-18C356650970} = {40E664E8-CC7A-4F81-BE6B-5B56C6D4EF1A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6EE26AB7-00BD-4343-A5D0-AB99AFBE2928}
 	EndGlobalSection
 EndGlobal
