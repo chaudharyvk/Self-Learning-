@@ -61,6 +61,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BaseUnitTest.cs" />
     <Compile Include="CustomerRepositoryUnitTest.cs" />
     <Compile Include="OrderRepositoryUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

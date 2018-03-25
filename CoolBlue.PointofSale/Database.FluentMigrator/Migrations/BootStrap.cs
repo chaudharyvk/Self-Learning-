@@ -27,18 +27,26 @@ namespace Database
                                     .WithColumn("Country").AsString().Nullable()
                                     .WithColumn("State").AsString().Nullable()
                                     .WithColumn("City").AsString().Nullable()
-                                    .WithColumn("MobileNumber").AsString().Nullable()
-                                    .WithColumn("PostalCode").AsString().Nullable().
-                                    WithColumn("CustomerId").AsInt32().Nullable();
+                                    .WithColumn("MobileNumber").AsInt32().Nullable()
+                                    .WithColumn("PostalCode").AsInt32().Nullable().
+                                     WithColumn("CustomerId").AsInt32().Nullable().
+                                     WithColumn("CreatedBy").AsInt32().NotNullable().
+                                     WithColumn("UpdatedBy").AsInt32().Nullable().
+                                     WithColumn("CreatedDate").AsDate().NotNullable().
+                                     WithColumn("UpdatedDate").AsDate().Nullable();
 
             Create.Table("Customer").WithColumn("Id").AsInt32().PrimaryKey().Identity()
                                    .WithColumn("UserId").AsString()
                                    .WithColumn("RowVersion").AsCustom("TIMESTAMP").NotNullable()
-                                   .WithColumn("Password").AsString();
+                                   .WithColumn("Password").AsString()
+                                   .WithColumn("CreatedBy").AsInt32().NotNullable()
+                                   .WithColumn("UpdatedBy").AsInt32().Nullable()
+                                   .WithColumn("CreatedDate").AsDate().NotNullable()
+                                   .WithColumn("UpdatedDate").AsDate().Nullable(); 
 
-            Create.ForeignKey("FK_dbo.Address.Customer").FromTable("Address").
+            Create.ForeignKey("FK_dbo.Address_CustomerId").FromTable("Address").
                 InSchema("dbo").ForeignColumns("CustomerId").
-                ToTable("Customer").InSchema("dbo").PrimaryColumns("Id");
+                ToTable("Customer").InSchema("dbo").PrimaryColumns("Id").OnDeleteOrUpdate(System.Data.Rule.Cascade);
         }
     }
 }

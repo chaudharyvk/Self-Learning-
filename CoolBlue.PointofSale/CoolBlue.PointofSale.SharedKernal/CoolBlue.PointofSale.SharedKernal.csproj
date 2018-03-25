@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="DomainEvents.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="Interfaces\IAudit.cs" />
     <Compile Include="Interfaces\IDomainEvent.cs" />
     <Compile Include="Interfaces\IHandle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

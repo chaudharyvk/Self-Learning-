@@ -17,7 +17,7 @@ namespace CoolBlue.PointofSale.Infrastructure.Customer.Data.Repositories
             this._customerContext = context;
         }
 
-        public int Add(Core.Model.Customer customer)
+        public int Add(Core.Model.Customer customer,ICollection<Address> address)
         {
             //todo throw custom exception if user already registerd
 
@@ -26,14 +26,14 @@ namespace CoolBlue.PointofSale.Infrastructure.Customer.Data.Repositories
             //     throw CustomException();
             // }
 
-            var cust = Core.Model.Customer.CreateCustomer(customer.UserId, customer.Password, customer.Addresses);
+            var cust = Core.Model.Customer.CreateCustomer(customer.UserId, customer.Password, address);
             this._customerContext.Customers.Add(cust);
                 
             _customerContext.Entry(cust).State = System.Data.Entity.EntityState.Added;
             return this._customerContext.SaveChanges();
         }
 
-        public int Add(string Userid, string password, Address address)
+        public int Add(string Userid, string password, ICollection<Address> address)
         {
             var cust = Core.Model.Customer.CreateCustomer(Userid, password, address);
             this._customerContext.Customers.Add(cust);
@@ -52,26 +52,41 @@ namespace CoolBlue.PointofSale.Infrastructure.Customer.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public Core.Model.Customer GetCustomerByUserID(string userid)
+        public Core.Model.Customer GetCustomerByUserID(string userId)
         {
-         if (userid== null)
-            {
-                new ArgumentNullException("user id is null");
-
-            }
-
-            return this._customerContext.Customers.FirstOrDefault(x => x.UserId == userid);
+         if (userId == null)  new ArgumentNullException("user id is null");
+         return this._customerContext.Customers.FirstOrDefault(x => x.UserId == userId);
         }
 
-        public void Remove(Core.Model.Customer customer)
+
+        public Core.Model.Customer GetCustomerByID(int id)
         {
-            throw new NotImplementedException();
+            if (id < 0) new ArgumentNullException("user id is null");
+            return this._customerContext.Customers.FirstOrDefault(x => x.Id == id);
+        }
+        public int Remove(Core.Model.Customer customerdto)
+        {
+            var customer = this.GetCustomerByID(customerdto.Id);
+           
+            if (customer == null)
+                throw new Exception("No such customer exists");
+
+            this._customerContext.Entry(customer).State = System.Data.Entity.EntityState.Deleted;
+        
+            return  this._customerContext.SaveChanges();
         }
 
-        public int Update(Core.Model.Customer customer)
+        public int Update(Core.Model.Customer customerdto,Address address)
         {
+            var customer = this.GetCustomerByID(customerdto.Id);
+            if (customer == null)
+                    throw new Exception("No such customer exists");
+
+            customer.EditCustomer(customerdto.Id,customerdto.UserId, customerdto.Password, address);
+
             this._customerContext.Customers.Attach(customer);
             _customerContext.Entry(customer).State = System.Data.Entity.EntityState.Modified;
+
             return this._customerContext.SaveChanges();
         }
     }
