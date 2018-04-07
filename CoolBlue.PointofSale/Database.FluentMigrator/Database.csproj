@@ -71,6 +71,7 @@
     <Compile Include="Fluent\CoolBlueFluentMigraionRunner.cs" />
     <Compile Include="Fluent\DatabaseHelper.cs" />
     <Compile Include="Migrations\BootStrap.cs" />
+    <Compile Include="Migrations\InsertStaticData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -95,6 +96,15 @@
     <EmbeddedResource Include="DeleteAllObjects.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\Countries.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\City.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\State.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

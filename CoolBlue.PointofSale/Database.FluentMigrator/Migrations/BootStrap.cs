@@ -42,11 +42,44 @@ namespace Database
                                    .WithColumn("CreatedBy").AsInt32().NotNullable()
                                    .WithColumn("UpdatedBy").AsInt32().Nullable()
                                    .WithColumn("CreatedDate").AsDate().NotNullable()
-                                   .WithColumn("UpdatedDate").AsDate().Nullable(); 
+                                   .WithColumn("UpdatedDate").AsDate().Nullable();
+
+            Create.Table("Countries").WithColumn("Id").AsInt32().PrimaryKey().Identity().NotNullable()
+                                     .WithColumn("SortName").AsString()
+                                     .WithColumn("Name").AsString()
+                                     .WithColumn("PhoneCode").AsInt32().NotNullable();
+
+            Create.Table("States").WithColumn("Id").AsInt32().PrimaryKey().Identity().NotNullable()
+                                  .WithColumn("Name").AsString()
+                                  .WithColumn("CountryId").AsInt32();
+
+
+            Create.Table("Cities").WithColumn("Id").AsInt32().PrimaryKey().Identity()                                  
+                                  .WithColumn("name").AsString()
+                                  .WithColumn("stateid").AsInt32();
 
             Create.ForeignKey("FK_dbo.Address_CustomerId").FromTable("Address").
                 InSchema("dbo").ForeignColumns("CustomerId").
                 ToTable("Customer").InSchema("dbo").PrimaryColumns("Id").OnDeleteOrUpdate(System.Data.Rule.Cascade);
-        }
+
+
+            Create.Table("CustomerEvent").WithColumn("Id").AsInt32().PrimaryKey().Identity().NotNullable()
+                                         .WithColumn("BeforeChangeStatusId").AsInt32().NotNullable()
+                                         .WithColumn("AfterChangeStatusId").AsInt32().NotNullable()
+                                         .WithColumn("EventDate").AsDateTime().NotNullable()
+                                         .WithColumn("ModifyUserId").AsInt32().NotNullable()
+                                         .WithColumn("CustomerId").AsInt32().NotNullable()                                        
+                                         .WithColumn("CustomerEventTypeId").AsInt32().NotNullable();
+
+
+            Create.Table("CustomerEventType").WithColumn("Id").AsInt32().PrimaryKey().Identity()
+                                 .WithColumn("Name").AsString()
+                                 .WithColumn("Description").AsInt32();
+
+            Create.Table("CustomerStatus").WithColumn("Id").AsInt32().PrimaryKey().Identity()
+                                 .WithColumn("Name").AsString()
+                                 .WithColumn("Description").AsInt32();
+
+        }                                    
     }
 }

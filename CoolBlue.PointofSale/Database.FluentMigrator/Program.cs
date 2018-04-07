@@ -15,10 +15,10 @@ namespace Database
 
             if(clearDBCOnfigEntry!=null && bool.Parse(clearDBCOnfigEntry))
             {
-                new DBMigrator(ConfigurationManager.ConnectionStrings["CoolBluePointofSale"].ConnectionString, ConfigurationManager.AppSettings["ENVIORNMENT"]?.ToUpper()).MigrateUp();
+                new DBMigrator(ConfigurationManager.ConnectionStrings["CoolBluePointofSale"].ConnectionString, ConfigurationManager.AppSettings["ENVIORNMENT"]?.ToUpper()).ClearDB();
             }
 
-           
+            CoolBlueFluentMigraionRunner.Run();
         }
     }
 }

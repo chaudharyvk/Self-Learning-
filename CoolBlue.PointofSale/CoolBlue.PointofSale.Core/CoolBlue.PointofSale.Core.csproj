@@ -44,11 +44,13 @@
     <Compile Include="Interfaces\ICustomerRepository.cs" />
     <Compile Include="Interfaces\IOrderRepository.cs" />
     <Compile Include="Interfaces\IProductRepository.cs" />
-    <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\CustomerEventType.cs" />
+    <Compile Include="Model\Customer\Address.cs" />
     <Compile Include="Model\Class1.cs" />
-    <Compile Include="Model\Customer.cs" />
-    <Compile Include="Model\Events\CreateCustomerEvent.cs" />
-    <Compile Include="Model\Events\CreateCustomerEventHandler.cs" />
+    <Compile Include="Model\Customer\Customer.cs" />
+    <Compile Include="Model\Customer\CustomerEventTypeEnum.cs" />
+    <Compile Include="Model\Customer\Events\CreateCustomerEvent.cs" />
+    <Compile Include="Model\Customer\Events\CreateCustomerEventHandler.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\OrderDetails.cs" />
     <Compile Include="Model\Product.cs" />
